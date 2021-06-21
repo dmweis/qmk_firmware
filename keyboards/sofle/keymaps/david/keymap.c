@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------------.                     ,-----------------------------------------.
  * | ESC  |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |  !   |  @   |  (   |  )   |  |   |                    |      |      |      |      |      | F12  |
+ * | Tab  |  !   |  @   |  (   |  )   |  |   |                    |  -   |  =+  |      |      |      | F12  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Bspc |  #   |      |  {   |  }   |  `   |-------.    ,-------| Left | Down |  Up  | Rigth|  Del | Bspc |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT( \
   KC_ESC,  KC_F1,    KC_F2,    KC_F3,   KC_F4,   KC_F5,                          KC_F6,    KC_F7,    KC_F8,   KC_F9,    KC_F10,   KC_F11, \
-  KC_TAB,  _______,  KC_AT,    KC_LPRN, KC_RPRN, KC_PIPE,                        _______,  _______,  _______,  _______, _______, KC_F12, \
+  KC_TAB,  _______,  KC_AT,    KC_LPRN, KC_RPRN, KC_PIPE,                        KC_MINS,  KC_EQL,  _______,  _______, _______, KC_F12, \
   KC_BSPC, KC_HASH,  _______,  KC_LCBR, KC_RCBR, KC_GRV,                        KC_LEFT,  KC_DOWN,  KC_UP,   KC_RGHT,  KC_DEL,   KC_BSPC, \
   KC_LSPO, _______,  _______,  KC_LBRC, KC_RBRC, KC_TILD,  _______,       _______,  _______, _______, _______,  _______,  _______, _______, \
                          _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______ \
@@ -382,9 +382,9 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         }
     } else if (index == 1) {
         if (clockwise) {
-            tap_code(KC_PGDOWN);
+            tap_code(KC_DOWN);
         } else {
-            tap_code(KC_PGUP);
+            tap_code(KC_UP);
         }
     }
     return true;
